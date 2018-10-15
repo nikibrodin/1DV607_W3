@@ -1,0 +1,11 @@
+/Users/Niki/Documents/1dv607/1DV607_W3/bin/Debug/netcoreapp2.1/1DV607_W3.deps.json
+/Users/Niki/Documents/1dv607/1DV607_W3/bin/Debug/netcoreapp2.1/1DV607_W3.runtimeconfig.json
+/Users/Niki/Documents/1dv607/1DV607_W3/bin/Debug/netcoreapp2.1/1DV607_W3.runtimeconfig.dev.json
+/Users/Niki/Documents/1dv607/1DV607_W3/bin/Debug/netcoreapp2.1/1DV607_W3.dll
+/Users/Niki/Documents/1dv607/1DV607_W3/bin/Debug/netcoreapp2.1/1DV607_W3.pdb
+/Users/Niki/Documents/1dv607/1DV607_W3/obj/Debug/netcoreapp2.1/1DV607_W3.csprojAssemblyReference.cache
+/Users/Niki/Documents/1dv607/1DV607_W3/obj/Debug/netcoreapp2.1/1DV607_W3.csproj.CoreCompileInputs.cache
+/Users/Niki/Documents/1dv607/1DV607_W3/obj/Debug/netcoreapp2.1/1DV607_W3.AssemblyInfoInputs.cache
+/Users/Niki/Documents/1dv607/1DV607_W3/obj/Debug/netcoreapp2.1/1DV607_W3.AssemblyInfo.cs
+/Users/Niki/Documents/1dv607/1DV607_W3/obj/Debug/netcoreapp2.1/1DV607_W3.dll
+/Users/Niki/Documents/1dv607/1DV607_W3/obj/Debug/netcoreapp2.1/1DV607_W3.pdb
