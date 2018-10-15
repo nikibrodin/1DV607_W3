@@ -7,7 +7,7 @@ namespace BlackJack.view
 {
     class SimpleView : IView
     {
-
+    
         public void DisplayWelcomeMessage()
         {
             System.Console.Clear();
@@ -15,10 +15,33 @@ namespace BlackJack.view
             System.Console.WriteLine("Type 'p' to Play, 'h' to Hit, 's' to Stand or 'q' to Quit\n");
         }
 
-        public int GetInput()
+
+        public Event GetInput()
         {
-            return System.Console.In.Read();
+            string inputString = System.Console.ReadLine();
+            if (inputString == "p")
+            {
+                return Event.Play;
+            }
+            if (inputString == "h")
+            {
+                return Event.Hit;
+            }
+            if (inputString == "s")
+            {
+                return Event.Stand;
+            }
+            if (inputString == "q")
+            {
+                return Event.Quit;
+            }
+            return Event.None;
         }
+
+        // public int GetInput()
+        // {
+        //    return System.Console.In.Read();
+        // }
 
         public void DisplayCard(model.Card a_card)
         {
