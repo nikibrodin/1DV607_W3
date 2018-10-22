@@ -9,7 +9,7 @@ namespace BlackJack.model
     {
         private List<Card> m_hand = new List<Card>();
 
-        public void DealCard(Card a_card)
+        public void AddToHand(Card a_card)
         {
             m_hand.Add(a_card);
         }
@@ -34,16 +34,7 @@ namespace BlackJack.model
 
         public int CalcScore()
         {
-            int[] cardScores = new int[(int)model.Card.Value.Count]
-                {2, 3, 4, 5, 6, 7, 8, 9, 10, 10 ,10 ,10, 11};
-            int score = 0;
-
-            foreach(Card c in GetHand()) {
-                if (c.GetValue() != Card.Value.Hidden)
-                {
-                    score += cardScores[(int)c.GetValue()];
-                }
-            }
+            int score = CalcBasicScore();
 
             if (score > 21)
             {
@@ -53,6 +44,22 @@ namespace BlackJack.model
                     {
                         score -= 10;
                     }
+                }
+            }
+
+            return score;
+        }
+
+        public int CalcBasicScore()
+        {
+            int[] cardScores = new int[(int)model.Card.Value.Count]
+            {2, 3, 4, 5, 6, 7, 8, 9, 10, 10 ,10 ,10, 11};
+            int score = 0;
+
+            foreach(Card c in GetHand()) {
+                if (c.GetValue() != Card.Value.Hidden)
+                {
+                    score += cardScores[(int)c.GetValue()];
                 }
             }
 

@@ -11,15 +11,20 @@ namespace BlackJack.model.rules
 
         public bool DoHit(model.Player a_dealer)
         {
-            int score = a_dealer.CalcScore();
+            int score = a_dealer.CalcBasicScore();
             IEnumerable<Card> hand = a_dealer.GetHand();
-            if (score == g_hitLimit) {
-                foreach(Card card in hand) {
-                    if (card.GetValue() == Card.Value.Ace && score == g_hitLimit) {
+            if (score == g_hitLimit) 
+            {
+                foreach(Card card in hand) 
+                {
+                    if (card.GetValue() == Card.Value.Ace) 
+                    {
                         score -= 10;
                     }
                 }
             }
+
+            if (a_dealer.CalcScore() < g_hitLimit) { return true; }
 
             return score < g_hitLimit;
         }
