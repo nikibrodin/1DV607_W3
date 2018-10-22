@@ -13,6 +13,7 @@ namespace BlackJack.model.rules
         {
             int score = a_dealer.CalcBasicScore();
             IEnumerable<Card> hand = a_dealer.GetHand();
+
             if (score == g_hitLimit) 
             {
                 foreach(Card card in hand) 
