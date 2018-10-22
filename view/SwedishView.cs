@@ -50,6 +50,11 @@ namespace BlackJack.view
                 System.Console.WriteLine("{0} {1}", colors[(int)a_card.GetColor()], values[(int)a_card.GetValue()]);
             }
         }
+
+        public void PauseGame() 
+        {
+            System.Threading.Thread.Sleep(2000);
+        }
         public void DisplayPlayerHand(IEnumerable<model.Card> a_hand, int a_score)
         {
             DisplayHand("Spelare", a_hand, a_score);
@@ -80,6 +85,11 @@ namespace BlackJack.view
             }
             System.Console.WriteLine("Poäng: {0}", a_score);
             System.Console.WriteLine("");
+        }
+
+        public void PauseGame(model.Card card) 
+        {
+
         }
     }
 }

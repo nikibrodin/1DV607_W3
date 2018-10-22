@@ -2,39 +2,60 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using BlackJack.model;
 
 namespace BlackJack.controller
 {
-    class PlayGame
+    class PlayGame : ICardDealtObserver
     {
-        public bool Play(model.Game a_game, view.IView a_view)
-        {
-            a_view.DisplayWelcomeMessage();
-            
-            a_view.DisplayDealerHand(a_game.GetDealerHand(), a_game.GetDealerScore());
-            a_view.DisplayPlayerHand(a_game.GetPlayerHand(), a_game.GetPlayerScore());
+        private model.Game m_game;
+        private view.IView m_view;
 
-            if (a_game.IsGameOver())
+        public PlayGame(model.Game a_game, view.IView a_view) 
+        {
+            m_game = a_game;
+            m_view = a_view;
+            m_game.AddSubscribers(this);
+        }
+
+        public void CardDealt() 
+        {
+            m_view.PauseGame();
+            DisplayInfo();
+        }
+        public bool Play()
+        {
+            DisplayInfo();
+
+            if (m_game.IsGameOver())
             {
-                a_view.DisplayGameOver(a_game.IsDealerWinner());
+                m_view.DisplayGameOver(m_game.IsDealerWinner());
             }
 
-            Event input = a_view.GetInput();
+            Event input = m_view.GetInput();
 
             if (input == Event.Play)
             {
-                a_game.NewGame();
+                m_game.NewGame();
             }
             else if (input == Event.Hit)
             {
-                a_game.Hit();
+                m_game.Hit();
             }
             else if (input == Event.Stand)
             {
-                a_game.Stand();
+                m_game.Stand();
             }
 
             return input != Event.Quit;
+        }
+
+        private void DisplayInfo()
+        {
+            m_view.DisplayWelcomeMessage();
+            
+            m_view.DisplayDealerHand(m_game.GetDealerHand(), m_game.GetDealerScore());
+            m_view.DisplayPlayerHand(m_game.GetPlayerHand(), m_game.GetPlayerScore());
         }
     }
 }

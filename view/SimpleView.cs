@@ -38,14 +38,14 @@ namespace BlackJack.view
             return Event.None;
         }
 
-        // public int GetInput()
-        // {
-        //    return System.Console.In.Read();
-        // }
-
         public void DisplayCard(model.Card a_card)
         {
             System.Console.WriteLine("{0} of {1}", a_card.GetValue(), a_card.GetColor());
+        }
+
+        public void PauseGame() 
+        {
+            System.Threading.Thread.Sleep(2000);
         }
 
         public void DisplayPlayerHand(IEnumerable<model.Card> a_hand, int a_score)
@@ -82,5 +82,6 @@ namespace BlackJack.view
             }
             
         }
+
     }
 }
