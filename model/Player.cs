@@ -14,7 +14,6 @@ namespace BlackJack.model
         {
             m_hand.Add(a_card);
 
-            // CALL ALL OBSERVERS WHEN A CARD IS ADDED.
             foreach (ICardDealtObserver o in m_observer) 
             {
 				o.CardDealt();
